@@ -39,21 +39,25 @@ addTaskButton.addEventListener('click', () => {
 	tasksList.innerHTML = '';
 
 	// Add tasks to the list
-	tasks.forEach((task) => {
+	tasks.forEach((task, ind) => {
 		const taskElement = document.createElement('li');
 		taskElement.className = 'task';
 		taskElement.innerHTML = `
+		<label class="details" for="task${ind}">
 			<div class="details">
-				<input type="checkbox" class="checkbox">
+				<input type="checkbox" class="checkbox" name="task${ind}" id="task${ind}" ${
+			task.completed ? 'checked' : ''
+		}>
 				<span class="text ${task.completed ? 'completed' : ''}">${task.text}</span>
 			</div>
 			<div class="meta">
 				<span>${task.priority}</span>
 				<span>${task.deadline}</span>
 			</div>
-            <div class="actions">
-                <button class="delete">Delete</button>
-            </div>
+			<div class="actions">
+				<button class="delete">Delete</button>
+			</div>
+		</label>
         `;
 
 		const deleteButton = taskElement.querySelector('.delete');
@@ -64,6 +68,7 @@ addTaskButton.addEventListener('click', () => {
 			tasksList.removeChild(taskElement);
 		});
 
+		const checkbox = taskElement.querySelector('.checkbox');
 		checkbox.addEventListener('change', () => {
 			task.completed = checkbox.checked;
 			taskText.classList.toggle('completed', task.completed);
@@ -79,21 +84,25 @@ addTaskButton.addEventListener('click', () => {
 });
 
 // Add tasks to the list
-tasks.forEach((task) => {
+tasks.forEach((task, ind) => {
 	const taskElement = document.createElement('li');
 	taskElement.className = 'task';
 	taskElement.innerHTML = `
+		<label class="details" for="task${ind}">
 			<div class="details">
-				<input type="checkbox" class="checkbox">
+				<input type="checkbox" class="checkbox" name="task${ind}" id="task${ind}" ${
+		task.completed ? 'checked' : ''
+	}>
 				<span class="text ${task.completed ? 'completed' : ''}">${task.text}</span>
 			</div>
 			<div class="meta">
 				<span>${task.priority}</span>
 				<span>${task.deadline}</span>
 			</div>
-            <div class="actions">
-                <button class="delete">Delete</button>
-            </div>
+			<div class="actions">
+				<button class="delete">Delete</button>
+			</div>
+		</label>
         `;
 
 	const deleteButton = taskElement.querySelector('.delete');
