@@ -89,7 +89,6 @@ nav {
 
 .shortcut-links a img {
 	width: 20px;
-	margin-right: 20px;
 }
 
 .shortcut-links a {
@@ -98,6 +97,7 @@ nav {
 	margin-bottom: 20px;
 	width: fit-content;
 	flex-wrap: wrap;
+	gap: 10px;
 }
 
 .shortcut-links a:first-child {
@@ -120,19 +120,22 @@ nav {
 .subscribed-list a {
 	display: flex;
 	align-items: center;
-	margin-bottom: 20px;
+	margin: 20px 0px;
 	width: fit-content;
 	flex-wrap: wrap;
+	gap: 10px;
 }
 
 .subscribed-list a img {
 	width: 25px;
 	border-radius: 50%;
-	margin-right: 20px;
+	/* margin-right: 20px; */
 }
 
 .small-sidebar {
-	width: 5%;
+	/* width: 50px; */
+	width: fit-content;
+	padding: 80px 20px 0px 20px;
 }
 
 .small-sidebar a p {
@@ -208,13 +211,13 @@ nav {
 /* *********  media query ******* */
 
 @media (max-width: 900px) {
-	/* .menu-icon {
-        display: none;
-    }
+	.menu-icon {
+		display: none;
+	}
 
-    .sidebar {
-        display: none;
-    } */
+	.sidebar {
+		display: none;
+	}
 
 	.container,
 	.large-container {
